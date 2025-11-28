@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Punto de Venta - Tienda de Productos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Punto de Venta - Tienda de Productos</h1>
+
+    <!--  Búsqueda y filtrado de productos -->
+    <div class="filters">
+        <input type="text" id="searchBox" placeholder="Buscar producto..." onkeyup="filterProducts()">
+        <select id="categoryFilter" onchange="filterProducts()">
+            <option value="todos">Todas las categorías</option>
+            <option value="dulces">Dulces</option>
+            <option value="bebidas">Bebidas</option>
+            <option value="snacks">Snacks</option>
+        </select>
+    </div>
+
+    <!--  Lista de productos disponibles -->
+    <div class="products">
+        <!-- Cada producto tiene datos y botones -->
+        <div class="product" data-name="Gomitas" data-price="10" data-category="dulces">
+            <img src="imagenes/gomitas.jpg" alt="Gomitas">
+            <h3>Gomitas</h3>
+            <p>Precio: $10</p>
+            <input type="number" min="1" value="1" class="quantity">
+            <button onclick="addToCart('Gomitas', 10)">Agregar</button>
+        </div>
+
+        <div class="product" data-name="Paletas" data-price="5" data-category="dulces">
+            <img src="imagenes/paletas.jpg" alt="Paletas">
+            <h3>Paletas</h3>
+            <p>Precio: $5</p>
+            <input type="number" min="1" value="1" class="quantity">
+            <button onclick="addToCart('Paletas', 5)">Agregar</button>
+        </div>
+
+        <div class="product" data-name="Refresco" data-price="15" data-category="bebidas">
+            <img src="imagenes/refresco.jpg" alt="Refresco">
+            <h3>Refresco</h3>
+            <p>Precio: $15</p>
+            <input type="number" min="1" value="1" class="quantity">
+            <button onclick="addToCart('Refresco', 15)">Agregar</button>
+        </div>
+
+        <div class="product" data-name="Papas" data-price="12" data-category="snacks">
+            <img src="imagenes/papas.jpg" alt="Papas">
+            <h3>Papas</h3>
+            <p>Precio: $12</p>
+            <input type="number" min="1" value="1" class="quantity">
+            <button onclick="addToCart('Papas', 12)">Agregar</button>
+        </div>
+    </div>
+
+    <!-- 🧾 Carrito de compras -->
+    <div class="cart">
+        <h2>Carrito de Compras</h2>
+        <table id="cartTable">
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Precio</th>
+                    <th>Cantidad</th>
+                    <th>Subtotal</th>
+                </tr>
+            </thead>
+            <tbody id="cartItems">
+                <!-- Aquí se agregan los productos dinámicamente -->
+            </tbody>
+        </table>
+        <p id="total">Total: $0</p>
+        <button onclick="clearCart()">Vaciar Carrito</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
